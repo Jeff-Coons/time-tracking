@@ -11,7 +11,7 @@ module.exports = {
     devtool: 'eval-source-map',
 
     devServer: {
-        stats: 'errors-only',
+        // stats: 'errors-only',
         host: process.env.HOST,
         port: process.env.PORT
     },
