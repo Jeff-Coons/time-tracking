@@ -7,10 +7,9 @@ export class Nav extends React.Component {
             <div className="Nav">
                 <div className="Link Link-nav Nav-item">
                     <Link to='/previous-week'>Previous Week</Link>
-
                 </div>
                 <div className="Link Link-nav Nav-item">
-                    <Link to='/previous-week'>Current Week</Link>
+                    <Link to='/current-week'>Current Week</Link>
                 </div>
             </div>
         );

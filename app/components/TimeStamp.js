@@ -1,12 +1,9 @@
 import React from 'react'
 
 /** Input Component For Start and Stop Time */
-export class TimeStamp extends React.Component {
+export default class TimeStamp extends React.Component {
     constructor (props) {
-        super(props) {
-            position: props.position, // 'start' or 'end'
-            time: props.time // if loading previous times, pass in the time and load the value in the input
-        }
+        super(props)
 
         /** bind this so we dont return an instance of the react component */
         this.handleOnFocus = this.handleOnFocus.bind(this);

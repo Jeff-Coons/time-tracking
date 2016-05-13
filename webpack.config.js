@@ -1,32 +1,25 @@
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
     template: __dirname + '/app/index.html',
-    filenmae: 'index.html',
-    inject: 'body'
-})
+    filename: 'index.html',
+    inject: 'body',
+    showErrors: true
+});
 
 module.exports = {
     devtool: 'eval-source-map',
-
-    devServer: {
-        // stats: 'errors-only',
-        host: process.env.HOST,
-        port: process.env.PORT
-    },
 
     entry: [
         './app/index.js'
     ],
 
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js']
     },
 
     output: {
         path: __dirname + '/dist',
-        filenmae: 'bundle.js'
+        filenmae: 'index_bundle.js'
     },
 
     module: {
@@ -37,11 +30,10 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     presets: ['es2015', 'react']
-                },
-                progress: true
+                }
             }
         ]
     },
 
     plugins: [HtmlWebpackPluginConfig]
-};
+}

@@ -1,17 +1,19 @@
 import React from 'react'
-import { render } from 'react-dom'
-import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
 // Components
+import { Main } from '../components/Main'
+// import { Nav } from '../components/Nav'
 import { Home } from '../components/Home'
-import { WeekContainer } from '../containers/WeekContainer'
+
+import WeekContainer from '../containers/WeekContainer'
 
 export const routes = (
-    <Router history={browserHistory}>
-        <Route path='/' component={Home}>
-            <IndexRoute component={Home} /> // Change to main
-            <Route path="current-week" component={WeekContainer} />
-            <Route path="current-week" component={WeekContainer} />
+    <Router history={hashHistory}>
+        <Route path='/' component={Main}>
+            <IndexRoute component={Home} />
+            <Route path='previous-week' week='previous' component={WeekContainer} />
+            <Route path='current-week' week='current' component={WeekContainer} />
         </Route>
     </Router>
 );
