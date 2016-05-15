@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react'
 
-const propTypes = {
-    week: PropTypes.string.isRequired,
-    isLoading: PropTypes.bool.isRequired
-}
+import Week from '../components/Week'
+
+// const propTypes = {
+//     week: PropTypes.string.isRequired,
+//     // isLoading: PropTypes.bool.isRequired
+// }
 
 const defaultProps = {
-    week: '',
     isLoading: true
 }
 
@@ -17,12 +18,23 @@ export default class WeekContainer extends React.Component {
     }
 
     render () {
+        console.log(this.props)
 
-        return <div>Goodbye</div>
-        
+        if ( this.props.route.week === 'previous' ) {
+
+            return (
+                <div>
+                    <Week week={this.props.route.week} />
+                </div>
+            )
+
+        } else {
+
+            return <div>Hello</div>
+        }
 
     }
 }
 
-WeekContainer.propTypes = propTypes;
+// WeekContainer.propTypes = propTypes;
 WeekContainer.defaultProps = defaultProps;
