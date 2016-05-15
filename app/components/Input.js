@@ -5,14 +5,8 @@ export default class Input extends React.Component {
     constructor (props) {
         super(props)
 
-        /** bind this so we dont return an instance of the react component */
-        this.handleOnFocus = this.handleOnFocus.bind(this);
-        this.handleOnBlur = this.handleOnBlur.bind(this);
+
     }
-
-    handleOnFocus () {}
-
-    handleOnBlur () {}
 
     render () {
         return (
@@ -23,13 +17,4 @@ export default class Input extends React.Component {
                 onBlur={ this.handleOnBlur } />
         );
     }
-}
-
-TimeStamp.propTypes = {
-    position: propTypes.string.isRequired,
-    time: propTypes.number
-}
-
-TimeStamp.defaultProps = {
-    time: 0
 }
