@@ -1,4 +1,5 @@
 import React from 'react'
+import Day from './Day'
 
 const defaultProps = {
     currentWeek: getWeekDates ('current'),
@@ -56,13 +57,15 @@ export default class Week extends React.Component {
         if ( this.props.week === 'previous') {
 
             dates = this.props.previousWeek.map((date) => {
-                return <li key={date}>{date}</li>
+                // return <li key={date}>{date}</li>
+                return <Day key={date} week={this.props.week} date={date} />
             });
 
         } else {
 
             dates = this.props.currentWeek.map((dates) => {
-                return <li key={date}>{date}</li>
+                // return <li key={date}>{date}</li>
+                return <Day key={date} week={this.props.week} date={date} />
             });
         }
 

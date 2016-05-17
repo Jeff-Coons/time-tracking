@@ -23,9 +23,7 @@ export default class WeekContainer extends React.Component {
         if ( this.props.route.week === 'previous' ) {
 
             return (
-                <div>
-                    <Week week={this.props.route.week} />
-                </div>
+                <Week week={this.props.route.week} />
             )
 
         } else {
