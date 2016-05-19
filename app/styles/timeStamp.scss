@@ -1,0 +1,24 @@
+@for $i from 1 through 12 {
+    .col-#{$i}-12 {
+        display: inline-block;
+        width: calc((100vw / 12) * #{$i});
+    }
+}
+
+.TimeStamp {
+    display: flex;
+    background: #e5e5e5;
+
+    &-Input {
+        width: 100%;
+
+        input {
+            width: 100%;
+            -webkit-appearance: none;
+            outline: 0;
+            padding: 2rem;
+            font-size: 18px;
+            border-bottom: solid 2px #000;
+        }
+    }
+}

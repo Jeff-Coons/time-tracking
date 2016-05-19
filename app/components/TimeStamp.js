@@ -4,6 +4,7 @@ import TaskSelect from './TaskSelect'
 import TaskWriteIn from './TaskWriteIn'
 import Status from './Status'
 import Save from './Save'
+import { timeStamp } from '../styles/timeStamp'
 
 
 export default class TimeStamp extends React.Component {

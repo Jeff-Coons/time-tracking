@@ -14,7 +14,7 @@ module.exports = {
     ],
 
     resolve: {
-        extensions: ['', '.js']
+        extensions: ['', '.js', '.scss']
     },
 
     output: {
@@ -31,8 +31,17 @@ module.exports = {
                 query: {
                     presets: ['es2015', 'react']
                 }
+            },
+
+            {
+                test: /\.scss$/,
+                loaders: ['style', 'css', 'sass'],
             }
         ]
+    },
+
+    sassLoader: {
+        includePaths: ['./app/styles/']
     },
 
     plugins: [HtmlWebpackPluginConfig]
