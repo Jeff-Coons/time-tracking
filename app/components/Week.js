@@ -70,9 +70,9 @@ export default class Week extends React.Component {
         }
 
         return (
-            <ul>
+            <div>
                 {dates}
-            </ul>
+            </div>
         )
     }
 }

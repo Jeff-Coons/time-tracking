@@ -1,12 +1,11 @@
 import React from 'react'
 
 /**
- * Input Component For Start and Stop Time
+ * Select for the task that we're saving the time to
  * @param { object } - props passed through from day component
- * @param { string } - props.time - if viewing the previous week the set the value to the time passed from teamwork
- * @return - An input field to save our time to teamwork
+ * @return - A select field to choose your task that
  */
-export default class Input extends React.Component {
+export default class TaskSelect extends React.Component {
     constructor (props) {
         super(props)
 
@@ -20,15 +19,20 @@ export default class Input extends React.Component {
 
     render () {
         return (
-            <div className="TimeStamp-Input">
-                <input
-                    type='text'
-                    value={this.props.time}
+            <div className="TimeStamp-TaskSelect">
+                <select
                     week={this.props.week}
                     date={this.props.date}
                     onBlur={this.handleOnBlur}
-                    onFocus={this.hndleOnFocus} />
+                    onFocus={this.hndleOnFocus} >
+
+                    <option key={this.props.taskName} value={this.props.taskName}>{this.props.taskName}</option>
+                </select>
             </div>
-        );
+        )
     }
+}
+
+TaskSelect.defaultProps = {
+    taskName: 'Task Name'
 }
