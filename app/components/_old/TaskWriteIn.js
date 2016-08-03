@@ -23,17 +23,17 @@ export default class TaskWriteIn extends React.Component {
 
     render () {
         return (
-            <div className="TimeStamp-Writein">
-                <div className="TimeStamp-Writein-text">
+            <div className="Timestamp-Writein">
+                <div className="Timestamp-Writein-text">
                     <textarea
                         value={this.props.taskName}
                         week={this.props.week}
                         date={this.props.date}
                         onBlur={this.handleOnBlur}
-                        onFocus={this.hndleOnFocus} >    
+                        onFocus={this.hndleOnFocus} >
                     </textarea>
                 </div>
-                <div className="TimeStamp-Writein-url">
+                <div className="Timestamp-Writein-url">
                     <input
                         type='url'
                         value={this.props.taskUrl}
@@ -42,7 +42,7 @@ export default class TaskWriteIn extends React.Component {
                         onBlur={this.handleOnBlur}
                         onFocus={this.hndleOnFocus} />
                 </div>
-                <div className="TimeStamp-Writein-url">
+                <div className="Timestamp-Writein-url">
                     <button >Save <i className="fa fa-check-circle" aria-hidden="true"></i></button>
                 </div>
             </div>

@@ -1,48 +1,12 @@
-import React from 'react'
-import Day from './Day'
+import React, { PropTypes } from 'react'
+import axios from 'axios'
+import getWeekDates from '../helpers/getWeekDates'
+import TimeStamp from './TimeStamp'
+import teamwork from '../helpers/teamwork';
+// import Day from './Day'
 
-const defaultProps = {
-    currentWeek: getWeekDates ('current'),
-    previousWeek: getWeekDates ('previous')
-}
-
-function getWeekDates (week) {
-    let date = new Date() // get the current date => returns string
-    let tempDate = new Date() // a temp variable to save the dates to
-    let today = date.getDay() // returns the number of day according to the week ie firday = 5
-    let untilSunday = 8 - date.getDay() // get the remaining days until sunday plus 1
-    let currentDate = date.getDate(); // current number of day in the month
-    let datesArray = [] // array of the dates
-
-    if ( week === 'previous' ) {
-
-        tempDate.setDate( currentDate - today );
-
-        for (let i = 7; i > 0; i-- ) {
-
-            tempDate.setDate( tempDate.getDate() - 1 )
-            datesArray.push(
-                (tempDate.getMonth() + 1) + '-' + tempDate.getDate() + '-' + tempDate.getFullYear()
-            )
-
-        }
-
-    } else {
-
-        tempDate.setDate( currentDate + untilSunday );
-
-        for (let i = 7; i > 0; i-- ) {
-
-            tempDate.setDate( tempDate.getDate() - 1 )
-            let key = tempDate.getDay();
-            datesArray.push(
-                (tempDate.getMonth() + 1) + '-' + tempDate.getDate() + '-' + tempDate.getFullYear()
-            )
-
-        }
-    }
-
-    return datesArray;
+const propTypes = {
+    weekType: PropTypes.string.isRequired
 }
 
 
@@ -51,30 +15,38 @@ export default class Week extends React.Component {
         super(props)
     }
 
+    componentWillMount() {
+        this.setState({
+            entries: this.props.route.user.then((user) => teamwork.getEntries(user.id, 'previous'))
+        });
+    }
+
     render () {
-        let dates;
 
-        if ( this.props.week === 'previous') {
+        // console.log(this.state);
 
-            dates = this.props.previousWeek.map((date) => {
-                // return <li key={date}>{date}</li>
-                return <Day key={date} week={this.props.week} date={date} />
-            });
+        // this.state.entries.then(function(entries) {
+        //
+        //     entries.map(function(entry) {
+        //
+        //         console.log(entry);
+        //         <TimeStamp hour={entry.hours} minutes={entry.minutes} />
+        //     })
+        //
+        // })
 
-        } else {
+        // return (
+        //     <div>
+        //         {this.state.entries.then(function(entries, index) {
+        //             <TimeStamp hour={2} minutes={30} />
+        //             // Object.keys(entries).map(function (entry, index) {
+        //             // })
+        //         })}
+        //     </div>
+        // )
 
-            dates = this.props.currentWeek.map((dates) => {
-                // return <li key={date}>{date}</li>
-                return <Day key={date} week={this.props.week} date={date} />
-            });
-        }
-
-        return (
-            <div>
-                {dates}
-            </div>
-        )
+        return <div>Cool</div>
     }
 }
 
-Week.defaultProps = defaultProps;
+// Week.propTypes = propTypes;

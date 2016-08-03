@@ -1,13 +1,14 @@
 @for $i from 1 through 12 {
     .col-#{$i}-12 {
-        display: inline-block;
         width: calc((100vw / 12) * #{$i});
     }
 }
 
-.TimeStamp {
+.Timestamp {
     display: flex;
+    flex-wrap: nowrap;
     background: #e5e5e5;
+    text-align: center;
 
     &-Input {
         width: 100%;
@@ -20,5 +21,10 @@
             font-size: 18px;
             border-bottom: solid 2px #000;
         }
+    }
+
+    &-Writein {
+        display: flex;
+        flex-wrap: nowrap;
     }
 }

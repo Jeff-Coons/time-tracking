@@ -4,16 +4,17 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 // Components
 import { Main } from '../components/Main'
 // import { Nav } from '../components/Nav'
-import { Home } from '../components/Home'
+import Home from '../components/Home'
+import Week from '../components/Week'
+import { getUser } from '../helpers/teamwork';
 
-import WeekContainer from '../containers/WeekContainer'
+let user = getUser('jeff.coons@union.co')
 
 export const routes = (
     <Router history={hashHistory}>
-        <Route path='/' component={Main}>
-            <IndexRoute component={Home} />
-            <Route path='previous-week' week='previous' component={WeekContainer} />
-            <Route path='current-week' week='current' component={WeekContainer} />
+        <Route path='/'component={Home}>
+            <Route path='previous-week' user={user} weekType='previous' component={Week} />
+            <Route path='current-week' user={user} weekType='current' component={Week} />
         </Route>
     </Router>
 );

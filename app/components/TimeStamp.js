@@ -1,10 +1,10 @@
 import React from 'react'
-import Input from './Input'
-import TaskSelect from './TaskSelect'
-import TaskWriteIn from './TaskWriteIn'
-import Status from './Status'
-import Save from './Save'
-import { timeStamp } from '../styles/timeStamp'
+// import Input from './Input'
+// import TaskSelect from './TaskSelect'
+// import TaskWriteIn from './TaskWriteIn'
+// import Status from './Status'
+// import Save from './Save'
+// import { timeStamp } from '../styles/timeStamp'
 
 
 export default class TimeStamp extends React.Component {
@@ -23,33 +23,20 @@ export default class TimeStamp extends React.Component {
 
 
     render () {
-
         return (
-            <div className="Timestamp">
-                <div className="Timestamp-col col-1-12">
-                    <Input position='start' />
-                </div>
-                <div className="Timestamp-col col-1-12">
-                    <Input position='stop' />
-                </div>
-                <div className="Timestamp-col col-4-12">
-                    <TaskSelect />
-                </div>
-                <div className="Timestamp-col col-1-12">
-                    <TaskWriteIn />
-                </div>
-                <div className="Timestamp-col col-1-12">
-                    <Status status={this.props.status} />
-                </div>
-                <div className="Timestamp-col col-1-12">
-                    <Save />
-                </div>
+
+            <div>
+                <form className="Timestamp">
+                    <input type="text" val={this.props.hour} />
+                    <input type="text" val={this.props.minutes} />
+                </form>
             </div>
+
         )
     }
 }
 
-TimeStamp.defaultProps = {
-    value: 0,
-    status: 'unsaved'
-}
+// TimeStamp.defaultProps = {
+//     value: 0,
+//     status: 'unsaved'
+// }
