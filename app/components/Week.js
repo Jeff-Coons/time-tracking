@@ -1,9 +1,7 @@
 import React, { PropTypes } from 'react'
 import axios from 'axios'
-import getWeekDates from '../helpers/getWeekDates'
-import TimeStamp from './TimeStamp'
 import teamwork from '../helpers/teamwork';
-// import Day from './Day'
+import TimeStamp from './TimeStamp'
 
 const propTypes = {
     weekType: PropTypes.string.isRequired
